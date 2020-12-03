@@ -14,4 +14,9 @@ function vowels(str) {
 	return strArr.filter((ch) => vowels.includes(ch.toLowerCase())).length;
 }
 
-module.exports = vowels;
+const vowelsRegEx = (str) => {
+	const matches = str.match(/[aeiou]/gi); //g search for all occurences, i case insensitive
+
+	return matches ? matches.length : 0;
+};
+module.exports = vowelsRegEx;
