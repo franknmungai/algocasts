@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"test": "jest --watch vowels"
+		"test": "jest --watch fib"
 	},
 	"jest": {
 		"testEnvironment": "node"
