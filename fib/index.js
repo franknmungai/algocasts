@@ -29,9 +29,14 @@ console.log(fib(39));
 
 const cache = {};
 const fib2 = (n) => {
-    if(n < 2) return cache[n];
+    if(n < 2) return n;
+    if(cache[n]) return cache[n];
 
     cache[n] = fib2(n - 1) + fib2(n - 2);
+    return cache[n];
 
 }
+
+console.log(fib2(50));
+
 module.exports = fib;
