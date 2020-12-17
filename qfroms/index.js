@@ -14,6 +14,24 @@
 
 const Stack = require('./stack');
 
-class Queue {}
+class Queue { //FIFO
+    constructor() {
+        this.stack1 = new Stack(); //FILO
+        this.stack2 = new Stack();
+    }
+
+    // should add an item at the bottom of the queue
+    add(item){
+        this.stack1.push(item);
+    }
+
+    remove(){
+        return this.stack1.pop();
+    }
+    peek(){
+        return this.stack1.peek();
+    }
+
+}
 
 module.exports = Queue;
