@@ -21,13 +21,10 @@ class LinkedList {
     }
 
     size(){
-        
-        if(!this.head) return 0;
-        let count = 1;
-
+        let count = 0;
         let node = this.head;
 
-        while (node.next) {
+        while (node) {
             count++;
             node = node.next;
         }
