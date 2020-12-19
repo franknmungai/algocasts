@@ -26,12 +26,35 @@ class Queue { //FIFO
     }
 
     remove(){
-        return this.stack1.pop();
+        
+        while (this.stack1.peek()) {   
+            this.stack2.push(this.stack1.pop());
+        }
+
+        const item = this.stack2.pop();
+
+        // restore the records back to stack A
+        while (this.stack2.peek()) {
+            const item = this.stack2.pop();
+            this.stack1.push(item);
+        }
+
+        return item;        
     }
     peek(){
-        return this.stack1.peek();
+        while (this.stack1.peek()) {
+            const item = this.stack1.pop();
+            this.stack2.push(item);
+        }
+        let peekItem = this.stack2.peek();
+        // restore the records back to stack A
+        while (this.stack2.peek()) {
+            const item = this.stack2.pop();
+            this.stack1.push(item);
+        }
+
+        return peekItem;
     }
 
 }
-
 module.exports = Queue;
