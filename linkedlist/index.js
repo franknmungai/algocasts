@@ -92,12 +92,25 @@ class LinkedList {
     removeAt(index){
         if(!this.head) return;
 
-        const prevNode = this.getAt(index - 1); //get the previous node
-        if(!prevNode) {
-            return this.head = null; 
+        let count = 0;
+        if(index === count) { //remove the head
+            this.head = this.head.next;
+            return;
         }
-        const nextNode = prevNode.next?.next; //get the next node
-        prevNode.next = nextNode;
+
+        let previous = null;
+        let node = this.head;
+
+        while (node) {
+            if(index === count) {
+                previous.next = node.next;
+                return;
+            }
+            previous = node;
+            node = node.next;
+            count++;
+        }       
+
     }
 
     print(){
@@ -122,8 +135,11 @@ const linkedList = new LinkedList();
 linkedList.insertLast(1);
 linkedList.insertLast(2);
 linkedList.insertLast(3);
+linkedList.insertLast(4);
+linkedList.insertLast(5);
 linkedList.print();
-linkedList.removeAt(0);
+
+linkedList.removeAt(1);
 linkedList.print();
 
 module.exports = { Node, LinkedList };
