@@ -140,6 +140,15 @@ class LinkedList {
         }
     }
 
+    // iterator to be used with for...of
+    *[Symbol.iterator](){
+        let node = this.head;
+
+        while(node){
+            yield node;
+            node = node.next;
+        }
+    }
     print(){
         let chain = '';
         if(!this.head) return chain;
