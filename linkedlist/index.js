@@ -128,6 +128,18 @@ class LinkedList {
         previous.next = new Node(data, previous.next);
     }
 
+    forEach(fn){
+        if(!this.head) return;
+        let counter = 0;
+        let node = this.head;
+
+        while(node) {
+            fn(node, counter);
+            counter++;
+            node = node.next;
+        }
+    }
+
     print(){
         let chain = '';
         if(!this.head) return chain;
