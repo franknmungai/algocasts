@@ -113,6 +113,21 @@ class LinkedList {
 
     }
 
+    insertAt(data, index){
+        if(!this.head) return this.head = new Node(data);
+
+        if(index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+        const previous = this.getAt(index - 1);
+        if(!previous){
+            // index is out of bounds
+            return this.insertLast(data);
+        }
+        previous.next = new Node(data, previous.next);
+    }
+
     print(){
         let chain = '';
         if(!this.head) return chain;
@@ -139,7 +154,7 @@ linkedList.insertLast(4);
 linkedList.insertLast(5);
 linkedList.print();
 
-linkedList.removeAt(1);
+linkedList.insertAt('hi', 0);
 linkedList.print();
 
 module.exports = { Node, LinkedList };
