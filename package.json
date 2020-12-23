@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"test": "jest --watch circular"
+		"test": "jest --watch fromlast"
 	},
 	"jest": {
 		"testEnvironment": "node"

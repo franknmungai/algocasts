@@ -1,3 +1,4 @@
+const { LinkedList } = require('./linkedlist');
 // --- Directions
 // Given a linked list, return the element n spaces
 // from the last node in the list.  Do not call the 'size'
@@ -11,6 +12,27 @@
 //    list.insertLast('d');
 //    fromLast(list, 2).data // 'b'
 
-function fromLast(list, n) {}
+function fromLast(list, n) {
+	let slow = list.head;
+	let fast = list.head;
+	// create an offset of n between slow and fast so that fast is n nodes ahead
+	// when fast === last node, slow is n nodes from last
+	for (let i = 0; i < n; i++) {
+		fast = fast.next;
+	}
 
+	while (fast && fast.next) {
+		fast = fast.next;
+		slow = slow.next;
+	}
+
+	return slow;
+}
+
+const list = new LinkedList();
+list.insertLast('a');
+list.insertLast('b');
+list.insertLast('c');
+list.insertLast('d');
+console.log(fromLast(list, 2).data); // 'b'
 module.exports = fromLast;
