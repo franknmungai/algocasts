@@ -31,14 +31,23 @@ class Tree {
 	}
 
 	traverseBF(fn) {
-		let nodes = [this.root];
+		const nodes = [this.root];
 
 		while (nodes.length) {
-			const node = nodes[0];
-			nodes = [...nodes, ...node.children];
+			const node = nodes.shift(); //Removes the first element from an array and returns it
+			nodes.push(...node.children);
 
 			fn(node);
-			nodes.splice(0, 1);
+		}
+	}
+
+	traverseDF(fn) {
+		const nodes = [this.root];
+
+		while (nodes.length) {
+			const node = nodes.shift();
+			nodes.unshift(...node.children);
+			fn(node);
 		}
 	}
 }
