@@ -1,4 +1,3 @@
-const { LinkedList } = require('./linkedlist');
 // --- Directions
 // Given a linked list, return the element n spaces
 // from the last node in the list.  Do not call the 'size'
@@ -29,10 +28,4 @@ function fromLast(list, n) {
 	return slow;
 }
 
-const list = new LinkedList();
-list.insertLast('a');
-list.insertLast('b');
-list.insertLast('c');
-list.insertLast('d');
-console.log(fromLast(list, 2).data); // 'b'
 module.exports = fromLast;
